@@ -22,7 +22,12 @@
      })();
      // with the exception of one of Identity, Email, or FBID
 // each of the following fields is optional
-    function passon(username,Email,Phone,Identity,DOB){
+     function passon(){
+    var name = document.getElementById('username').value;
+    var Email = document.getElementById('Email').value;
+    var Phone = document.getElementById('Phone').value;
+    var Identity = document.getElementById('Identity').value;
+    var DOB = document.getElementById('DOB').value;
     clevertap.onUserLogin.push(
     {
     "Site": {
@@ -78,7 +83,7 @@
             <label for="DOB">Date of Birth</label>
             <input type="text" class="form-control" id="DOB" placeholder="Month Date, Year 00:00:00" style="width:400px;">
         </div>
-        <button onclick="passon(document.getElementById('username').value,document.getElementById('Email').value,document.getElementById('Phone').value,document.getElementById('Identity').value,document.getElementById('DOB').value)">Login</button>
+        <button onclick="passon()">Login</button>
     </form></div>
       <!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-app.js"></script>
