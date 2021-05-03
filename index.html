@@ -23,7 +23,7 @@
      // with the exception of one of Identity, Email, or FBID
 // each of the following fields is optional
      function passon(){
-    var name = document.getElementById('username').value;
+    var username = document.getElementById('username').value;
     var Email = document.getElementById('Email').value;
     var Phone = document.getElementById('Phone').value;
     var Identity = document.getElementById('Identity').value;
@@ -31,7 +31,7 @@
     clevertap.onUserLogin.push(
     {
     "Site": {
-    "Name": name,            // String
+    "Name": username,            // String
     "Identity": Identity,              // String or number
     "Email": Email,         // Email address of the user
     "Phone": Phone,           // Phone (with the country code)
