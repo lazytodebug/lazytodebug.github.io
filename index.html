@@ -28,6 +28,7 @@
     var Phone = document.getElementById('Phone').value;
     var Identity = document.getElementById('Identity').value;
     var DOB = document.getElementById('DOB').value;
+    var Food = document.getElementById('Food').value;
     clevertap.onUserLogin.push(
     {
     "Site": {
@@ -36,6 +37,7 @@
     "Email": Email,         // Email address of the user
     "Phone": Phone,           // Phone (with the country code)
     "Gender": "M",                     // Can be either M or F
+    "Favourite Food" : Food
     "DOB": new Date(DOB),  
     "MSG-email": false,                
     "MSG-push": true,                  
@@ -79,6 +81,10 @@
             <label for="Identity">Identity</label>
             <input type="text" class="form-control" id="Identity" placeholder="Enter ID" style="width:200px;">
         </div>
+        <div class="form-group">
+                <label for="Food">Favourite Food</label>
+                <input type="text" class="form-control" id="Food" placeholder="Favourite Food" style="width:200px;">
+            </div>
         <div class="form-group">
             <label for="DOB">Date of Birth</label>
             <input type="text" class="form-control" id="DOB" placeholder="Month Date, Year 00:00:00" style="width:400px;">
