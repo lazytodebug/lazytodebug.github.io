@@ -22,20 +22,23 @@
      })();
      // with the exception of one of Identity, Email, or FBID
 // each of the following fields is optional
-
-    clevertap.onUserLogin.push({
+    function passon(username,Email,Phone,Identity,DOB){
+    clevertap.onUserLogin.push(
+    {
     "Site": {
-    "Name": "Jack Montana",            // String
-    "Identity": 61026032,              // String or number
-    "Email": "jack@gmail.com",         // Email address of the user
-    "Phone": "+14155551234",           // Phone (with the country code)
+    "Name": name,            // String
+    "Identity": Identity,              // String or number
+    "Email": Email,         // Email address of the user
+    "Phone": Phone,           // Phone (with the country code)
     "Gender": "M",                     // Can be either M or F
-    "MSG-email": false,                // Disable email notifications
-    "MSG-push": true,                  // Enable push notifications
-    "MSG-sms": true,                   // Enable sms notifications
-    "MSG-whatsapp": true,              // Enable WhatsApp notifications
+    "DOB": new Date(DOB),  
+    "MSG-email": false,                
+    "MSG-push": true,                  
+    "MSG-sms": true,                   
+    "MSG-whatsapp": true,              
     }
     })
+}
     clevertap.event.push("Product Viewed", {
     "Product name":"Casio Chronograph Watch",
     "Category":"Mens Accessories",
@@ -53,23 +56,30 @@
    </script>
 </head>
 <body>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <form>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <div align ='center'><form>
         <div class="form-group">
-          <label for="exampleInputEmail1">Email address</label>
-          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        <label for="username">UserName</label>
+        <input type="text" class="form-control" id="username" placeholder="Enter User" style="width:400px;">
         </div>
         <div class="form-group">
-          <label for="exampleInputPassword1">Password</label>
-          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+            <label for="Enail">Email Address</label>
+            <input type="email" class="form-control" id="Email" placeholder="Enter email" style="width:400px;">
         </div>
-        <div class="form-group form-check">
-          <input type="checkbox" class="form-check-input" id="exampleCheck1">
-          <label class="form-check-label" for="exampleCheck1">Check me out</label>
+        <div class="form-group">
+            <label for="Phone">Phone</label>
+            <input type="text" class="form-control" id="Phone" placeholder="Enter Phone" style="width:200px;">
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </form>
+        <div class="form-group">
+            <label for="Identity">Identity</label>
+            <input type="text" class="form-control" id="Identity" placeholder="Enter ID" style="width:200px;">
+        </div>
+        <div class="form-group">
+            <label for="DOB">Date of Birth</label>
+            <input type="text" class="form-control" id="DOB" placeholder="Month Date, Year 00:00:00" style="width:400px;">
+        </div>
+        <button onclick="passon(document.getElementById('username').value,document.getElementById('Email').value,document.getElementById('Phone').value,document.getElementById('Identity').value,document.getElementById('DOB').value)">Login</button>
+    </form></div>
       <!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-app.js"></script>
 
