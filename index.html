@@ -73,6 +73,8 @@
     "Price":price,
     });
 }
+        function event_on1(){
+            clevertap.event.push("product viewed")}
     clevertap.notificationCallback = function(msg){
       //raise the notification viewed and clicked events in the callback
       clevertap.raiseNotificationViewed();
@@ -122,7 +124,7 @@
             </div>
             &nbsp;
             <div>
-                    <button class ="btn btn-primary" onclick="event_on()">Test</button> 
+                    <button class ="btn btn-primary" onclick="event_on()">Test</button> <button class ="btn btn-primary" onclick="event_on1()">Test</button> 
             </div>
             </form>
         </div>
