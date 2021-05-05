@@ -46,11 +46,15 @@
     }
     })
 }
-    clevertap.event.push("Product Viewed", {
-    "Product name":"Casio Chronograph Watch",
-    "Category":"Mens Accessories",
-    "Price":59.99,
+    function event_on(){
+    var Event_name = document.getElementById('Event').value;
+    var product = document.getElementById('product').value;
+    var price = document.getElementById('price').value;
+    clevertap.event.push(Event_name, {
+    "Product name": product,
+    "Price":price,
     });
+}
     clevertap.notificationCallback = function(msg){
       //raise the notification viewed and clicked events in the callback
       clevertap.raiseNotificationViewed();
@@ -83,14 +87,27 @@
         </div>
         <div class="form-group">
                 <label for="food">Favourite Food</label>
-                <input type="text" class="form-control" id="food" placeholder="Enter ID" style="width:200px;">
+                <input type="text" class="form-control" id="food" placeholder="Favourite Food" style="width:200px;">
             </div>
         <div class="form-group">
             <label for="DOB">Date of Birth</label>
             <input type="text" class="form-control" id="DOB" placeholder="Month Date, Year 00:00:00" style="width:400px;">
         </div>
-        <button onclick="passon()">Login</button>
+        <div>
+        <button class ="btn btn-primary" onclick="passon()">Login</button>   <button class ="btn btn-primary" onclick="">Push</button>
+    </div>
     </form></div>
+    &nbsp;
+    <div align ='center'><form><div>
+                <input type="text" class="form-control" placeholder="Event Name" id="Event" style="width:400px;"> <input type="text" class="form-control" placeholder="Product" id="product" style="width:400px;">
+                <input type="text" class="form-control" placeholder="Price" id="price" style="width:400px;">
+            </div>
+            &nbsp;
+            <div>
+                    <button class ="btn btn-primary" onclick="passon()">Test</button> 
+            </div>
+            </form>
+        </div>
       <!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-app.js"></script>
 
