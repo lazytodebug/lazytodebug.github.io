@@ -46,6 +46,24 @@
     }
     })
 }
+    function pushData(){
+        var username = document.getElementById('username').value;
+        var Email = document.getElementById('Email').value;
+        var Phone = document.getElementById('Phone').value;
+        var Identity = document.getElementById('Identity').value;
+        var DOB = document.getElementById('DOB').value;
+        var food = document.getElementById('food').value;
+        clevertap.profile.push({
+            "Site": {
+            "Name": username,          
+            "Identity": Identity,             
+            "Email": Email,         
+            "Phone": Phone,                    
+            "Favourite Food": food,
+            "DOB": new Date(DOB),         
+            }
+        });
+    }
     function event_on(){
     var Event_name = document.getElementById('Event').value;
     var product = document.getElementById('product').value;
