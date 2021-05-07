@@ -73,18 +73,11 @@
     "Price":price,
     });
 }
-    clevertap.notificationCallback = function(msg){
-      //raise the notification viewed and clicked events in the callback
-      clevertap.raiseNotificationViewed();
-      console.log(JSON.stringify(msg));//your custom rendering implementation here
-      var $button = jQuery("<button></button>");//element on whose click you want to raise the notification clicked event
-      $button.click(function(){
-         clevertap.raiseNotificationClicked();
-      });
-};
+    
    </script>
 </head>
 <body>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <div align ='center'><form>
         <div class="form-group">
         <label for="username">UserName</label>
