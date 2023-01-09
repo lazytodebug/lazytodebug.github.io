@@ -80,10 +80,20 @@ function checkCookies() {
     "Default": 1
 });
 }
+        function myFunction1(){
+        clevertap.notifications.push({
+  "apnsWebPushId":"<apple web push id>", //only for safari browser
+  "apnsWebPushServiceUrl":"<safari package service url>",//only for safari browser
+  "titleText":'Would you like to receive Push Notifications?',
+  "bodyText":'We promise to only send you relevant content and give you updates on your transactions',
+  "okButtonText":'Sign me up!',
+  "rejectButtonText":'No thanks',
+  "okButtonColor":'#F28046'});
+    }
     
    </script>
 </head>
-<body onload="checkCookies()">
+<body onload="myFunction1()">
     <a href="twitter://account?">link</a>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <div align ='center'><form>
