@@ -6,32 +6,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+
     <script type="text/javascript">
-        var clevertap = {event:[], profile:[], account:[], onUserLogin:[], notifications:[], privacy:[]};
-        clevertap.account.push({"id": "ZWW-6Z6-9Z6Z"});
-        clevertap.privacy.push({optOut: false});
-        clevertap.privacy.push({useIP: true});
+        var clevertap = {
+            event: [],
+            profile: [],
+            account: [],
+            onUserLogin: [],
+            notifications: [],
+            privacy: []
+        };
+
+        clevertap.account.push({
+            "id": "ZWW-6Z6-9Z6Z"
+        });
+
+        clevertap.privacy.push({
+            optOut: false
+        });
+
+        clevertap.privacy.push({
+            useIP: true
+        });
 
         (function () {
             var wzrk = document.createElement('script');
             wzrk.type = 'text/javascript';
             wzrk.async = true;
-            wzrk.src = ('https:' == document.location.protocol ? 'https://d2r1yp2w7bby2u.cloudfront.net' : 'http://static.clevertap.com') + '/js/clevertap.min.js';
+
+            wzrk.src = ('https:' == document.location.protocol
+                ? 'https://d2r1yp2w7bby2u.cloudfront.net'
+                : 'http://static.clevertap.com') + '/js/clevertap.min.js';
+
             var s = document.getElementsByTagName('script')[0];
             s.parentNode.insertBefore(wzrk, s);
+
             clevertap.init('ZWW-WWW-WWRZ');
             clevertap.dismissSpamControl = true;
             clevertap.setLogLevel(0);
         })();
 
-        function passon(){
+        function passon() {
             var username = document.getElementById('username').value;
             var Email = document.getElementById('Email').value;
             var Phone = document.getElementById('Phone').value;
             var Identity = document.getElementById('Identity').value;
             var DOB = document.getElementById('DOB').value;
             var food = document.getElementById('food').value;
+
             clevertap.event.push("Login", {});
+
             clevertap.onUserLogin.push({
                 "Site": {
                     "Name": username,
@@ -49,13 +73,14 @@
             });
         }
 
-        function pushData(){
+        function pushData() {
             var username = document.getElementById('username').value;
             var Email = document.getElementById('Email').value;
             var Phone = document.getElementById('Phone').value;
             var Identity = document.getElementById('Identity').value;
             var DOB = document.getElementById('DOB').value;
             var food = document.getElementById('food').value;
+
             clevertap.profile.push({
                 "Site": {
                     "Name": username,
@@ -63,18 +88,19 @@
                     "Email": Email,
                     "Phone": Phone,
                     "Favourite Food": food,
-                    "DOB": new Date(DOB),
+                    "DOB": new Date(DOB)
                 }
             });
         }
 
-        function event_on(){
+        function event_on() {
             var Event_name = document.getElementById('Event').value;
             var product = document.getElementById('product').value;
             var price = document.getElementById('price').value;
+
             clevertap.event.push(Event_name, {
                 "Product name": product,
-                "Price": price,
+                "Price": price
             });
         }
 
@@ -90,14 +116,14 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
             margin: 0;
             padding: 0;
         }
 
         .form-container {
             width: 100%;
-            max-width: 600px; /* Adjust max-width as needed */
+            max-width: 600px;
             padding: 20px;
             border: 1px solid #ccc;
             border-radius: 5px;
@@ -115,74 +141,219 @@
         .btn-group {
             text-align: center;
         }
+
+        /* Popup Overlay */
+        .popup-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 9999;
+            overflow-y: auto;
+        }
+
+        /* Popup Content */
+        .popup-content {
+            position: relative;
+            width: 90%;
+            max-width: 700px;
+            margin: 50px auto;
+            padding: 30px;
+            background: #ffffff;
+            border-radius: 8px;
+            box-sizing: border-box;
+        }
+
+        /* Close Button */
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 8px 14px;
+            border: none;
+            border-radius: 4px;
+            background: #333;
+            color: #fff;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .close-btn:hover {
+            background: #555;
+        }
     </style>
 </head>
+
 <body>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <link
+        rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    >
 
     <div class="form-container">
+
         <form>
             <div class="form-group">
                 <label for="username">UserName</label>
-                <input type="text" class="form-control" id="username" placeholder="Enter User">
+                <input
+                    type="text"
+                    class="form-control"
+                    id="username"
+                    placeholder="Enter User"
+                >
             </div>
+
             <div class="form-group">
                 <label for="Email">Email Address</label>
-                <input type="email" class="form-control" id="Email" placeholder="Enter email">
+                <input
+                    type="email"
+                    class="form-control"
+                    id="Email"
+                    placeholder="Enter email"
+                >
             </div>
+
             <div class="form-group">
                 <label for="Phone">Phone</label>
-                <input type="text" class="form-control" id="Phone" placeholder="Enter Phone">
+                <input
+                    type="text"
+                    class="form-control"
+                    id="Phone"
+                    placeholder="Enter Phone"
+                >
             </div>
+
             <div class="form-group">
                 <label for="Identity">Identity</label>
-                <input type="text" class="form-control" id="Identity" placeholder="Enter ID">
+                <input
+                    type="text"
+                    class="form-control"
+                    id="Identity"
+                    placeholder="Enter ID"
+                >
             </div>
+
             <div class="form-group">
                 <label for="food">Favourite Food</label>
-                <input type="text" class="form-control" id="food" placeholder="Favourite Food">
+                <input
+                    type="text"
+                    class="form-control"
+                    id="food"
+                    placeholder="Favourite Food"
+                >
             </div>
+
             <div class="form-group">
                 <label for="DOB">Date of Birth</label>
-                <input type="text" class="form-control" id="DOB" placeholder="Month Date, Year 00:00:00">
+                <input
+                    type="text"
+                    class="form-control"
+                    id="DOB"
+                    placeholder="Month Date, Year 00:00:00"
+                >
             </div>
-           
+
             <div class="btn-group">
-                <button type="button" class="btn btn-primary" onclick="passon()">Login</button>
-                <button type="button" class="btn btn-primary" onclick="pushData()">Push</button>
+                <button
+                    type="button"
+                    class="btn btn-primary"
+                    onclick="passon()"
+                >
+                    Login
+                </button>
+
+                <button
+                    type="button"
+                    class="btn btn-primary"
+                    onclick="pushData()"
+                >
+                    Push
+                </button>
             </div>
         </form>
 
         <form>
             <div class="form-group">
-                <input type="text" class="form-control" id="Event" placeholder="Event Name">
-                <input type="text" class="form-control" id="product" placeholder="Product">
-                <input type="text" class="form-control" id="price" placeholder="Price">
+                <input
+                    type="text"
+                    class="form-control"
+                    id="Event"
+                    placeholder="Event Name"
+                >
+
+                <input
+                    type="text"
+                    class="form-control"
+                    id="product"
+                    placeholder="Product"
+                >
+
+                <input
+                    type="text"
+                    class="form-control"
+                    id="price"
+                    placeholder="Price"
+                >
             </div>
-            
+
             <div class="btn-group">
-                <button type="button" class="btn btn-primary" onclick="event_on()">Test</button>
-                <button type="button" class="btn btn-primary" id="inbox">Toggle Web Inbox</button>
+                <button
+                    type="button"
+                    class="btn btn-primary"
+                    onclick="event_on()"
+                >
+                    Test
+                </button>
+
+                <button
+                    type="button"
+                    class="btn btn-primary"
+                    id="inbox"
+                >
+                    Toggle Web Inbox
+                </button>
             </div>
         </form>
+
     </div>
-<div id="popup-overlay" class="popup-overlay">
+
+
+    <!-- TinyEmail Form Popup -->
+    <div id="popup-overlay" class="popup-overlay">
+
         <div class="popup-content">
-            <button class="close-btn" onclick="closePopup()">Close</button>
-            <!-- Insert TinyEmail Form -->
+
+            <button
+                class="close-btn"
+                onclick="closePopup()"
+            >
+                Close
+            </button>
+
+            <!-- TinyEmail Form -->
             <div>
-                <script src="https://app.tinyemail.com/static/js/TinyFormRenderer.js"
-                    data-ia1="f112ed0a-f6f1-4e70-9fab-6fc15dc36855"
-                    data-if2="f49fbb46-df49-4ac5-8e3d-c0bf437f5b32"></script>
+                <script
+                    src="https://email.stage.tiny-platform.com/static/js/TinyFormRenderer.js"
+                    data-ia1="4e4481d3-7686-4350-9c99-0de5b94708c3"
+                    data-if2="5f57e73d-9490-4283-a3fb-48e17e3aaa17">
+                </script>
             </div>
+
         </div>
+
     </div>
+
 
     <!-- Firebase & Other Scripts -->
     <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-analytics.js"></script>
 
     <script>
+
         // Firebase Configuration
         var firebaseConfig = {
             apiKey: "YOUR_API_KEY",
@@ -193,18 +364,23 @@
             appId: "YOUR_APP_ID",
             measurementId: "YOUR_MEASUREMENT_ID"
         };
+
         firebase.initializeApp(firebaseConfig);
         firebase.analytics();
 
-        // Show the popup after 5 seconds
-        setTimeout(function() {
-            document.getElementById('popup-overlay').style.display = 'block';
-        }, 5000); // Adjust delay time here (in milliseconds)
 
-        // Function to close the popup
+        // Show the popup after 5 seconds
+        setTimeout(function () {
+            document.getElementById('popup-overlay').style.display = 'block';
+        }, 5000);
+
+
+        // Close the popup
         function closePopup() {
             document.getElementById('popup-overlay').style.display = 'none';
         }
+
     </script>
+
 </body>
 </html>
